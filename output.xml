@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-11T17:39:45.847351" rpa="false" schemaversion="5">
+<suite id="s1" name="Register page" source="/home/christophe/Documents/Robot_LambdaTest/Tests/Register_page.robot">
+<kw name="Open Home Page" owner="Register_resource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:45.965714" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/register'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-11T17:39:45.965396" elapsed="2.468075"/>
+</kw>
+<status status="PASS" start="2026-02-11T17:39:45.964839" elapsed="2.468947"/>
+</kw>
+<test id="s1-t1" name="Boundaries tests" line="151">
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-11T17:39:48.438266" level="INFO">Testing: "" | "" | "" | "" | "" | ""</msg>
+<arg>Testing: ${first} | ${last} | ${email} | ${telephone} | ${pwd} | ${conf_pwd}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.437775" elapsed="0.000819"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.439392" level="INFO">Typing text '""' into text field 'id=input-firstname'.</msg>
+<arg>${FIRST_NAME1}</arg>
+<arg>${first}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.438837" elapsed="0.088204"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.527629" level="INFO">Typing text '""' into text field 'id=input-lastname'.</msg>
+<arg>${LAST_NAME1}</arg>
+<arg>${last}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.527348" elapsed="0.089726"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.617927" level="INFO">Typing text '""' into text field 'id=input-email'.</msg>
+<arg>${EMAIL1}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.617455" elapsed="0.071877"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.689957" level="INFO">Typing text '""' into text field 'id=input-telephone'.</msg>
+<arg>${TELEPHONE1}</arg>
+<arg>${telephone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.689602" elapsed="0.067846"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.758072" level="INFO">Typing text '""' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD1}</arg>
+<arg>${pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.757722" elapsed="0.063085"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.821389" level="FAIL">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</msg>
+<arg>${CONFIRM_PASSWORD1} ${conf_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2026-02-11T17:39:48.821084" elapsed="0.000773">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</kw>
+<kw name="Click on Continue" owner="Register_resource">
+<status status="NOT RUN" start="2026-02-11T17:39:48.822136" elapsed="0.000138"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${is_valid}</var>
+<arg>len("${first}")&gt;=1 and len("${first}")&lt;=32 and len("${last}")&gt;=1 and len("${last}")&lt;=32 and "@" in "${email}" and len("${telephone}")&gt;=3 and len("${telephone}")&lt;=32 and len("${pwd}")&gt;=4 and len("${pwd}")&lt;=20 and len("${conf_pwd}")&gt;=4 and len("${conf_pwd}")&lt;=20</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-02-11T17:39:48.822522" elapsed="0.000170"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_valid}</arg>
+<arg>Page Should Contain</arg>
+<arg>"Soumission réussie"</arg>
+<arg>ELSE</arg>
+<arg>Page Should Contain</arg>
+<arg>"Erreur dans le formulaire"</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-02-11T17:39:48.822944" elapsed="0.000198"/>
+</kw>
+<var name="${conf_pwd}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.437519" elapsed="0.385833">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${conf_pwd}</var>
+<value>@{CONFIRM_PASSWORDS}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.437170" elapsed="0.386439">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<var name="${pwd}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.437026" elapsed="0.386803">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${pwd}</var>
+<value>@{PASSWORDS}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.436693" elapsed="0.387261">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<var name="${telephone}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.436551" elapsed="0.387517">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${telephone}</var>
+<value>@{TELEPHONES}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.436176" elapsed="0.387992">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<var name="${email}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.436050" elapsed="0.388218">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${email}</var>
+<value>@{EMAILS1}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.435728" elapsed="0.388656">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<var name="${last}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.435605" elapsed="0.388874">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${last}</var>
+<value>@{LAST_NAMES}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.435206" elapsed="0.389365">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<var name="${first}">""</var>
+<status status="FAIL" start="2026-02-11T17:39:48.435026" elapsed="0.389635">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</iter>
+<var>${first}</var>
+<value>@{FIRST_NAMES}</value>
+<status status="FAIL" start="2026-02-11T17:39:48.434510" elapsed="0.390241">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</for>
+<status status="FAIL" start="2026-02-11T17:39:48.433955" elapsed="0.391217">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</test>
+<kw name="Close Browsers" owner="Register_resource" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<msg time="2026-02-11T17:39:48.889946" level="ERROR">Error terminating service process.
+Traceback (most recent call last):
+  File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
+    self.process.terminate()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 2227, in terminate
+    self.send_signal(signal.SIGTERM)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2219, in send_signal
+    os.kill(self.pid, sig)
+    ~~~~~~~^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied</msg>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-11T17:39:48.827099" elapsed="0.063694"/>
+</kw>
+<status status="PASS" start="2026-02-11T17:39:48.826716" elapsed="0.064440"/>
+</kw>
+<status status="FAIL" start="2026-02-11T17:39:45.849292" elapsed="3.042024"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Register page" id="s1" pass="0" fail="1" skip="0">Register page</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-02-11T17:39:48.889946" level="ERROR">Error terminating service process.
+Traceback (most recent call last):
+  File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
+    self.process.terminate()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 2227, in terminate
+    self.send_signal(signal.SIGTERM)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2219, in send_signal
+    os.kill(self.pid, sig)
+    ~~~~~~~^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied</msg>
+</errors>
+</robot>
