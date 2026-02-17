@@ -5,6 +5,7 @@ Suite Teardown        Close Browsers
 
 *** Test Cases ***
 
+#Test passant avec tous les champs remplis correctement
 The user registers to the site
     [Tags]    Register_to_site
     Enter FIRST_NAME
@@ -16,6 +17,8 @@ The user registers to the site
     Click on Privacy Policy
     Click on Continue
     Registration is confirmed
+
+#Tests avec champs vides    
 
 The user does not enter a first name
     [Tags]    No_firstname
@@ -104,6 +107,7 @@ The user enters invalid confirm password
     Log    ${message}
     Should Be Equal    ${message}    Password confirmation does not match password!
 
+#Ne clique pas sur Politique de confidentialité.
 
 The user does not click on Privacy Policy
     [Tags]    No_click_privacy_policy
@@ -117,6 +121,8 @@ The user does not click on Privacy Policy
     ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[1]
     Log    ${message}
     Should Be Equal    ${message}    Warning: You must agree to the Privacy Policy!
+
+#Tests avec formats d'e-mail non valides    
 
 Register with invalid email formats
     [Template]    Register user
@@ -149,4 +155,5 @@ Test invalid emails
 
 
     
+
 

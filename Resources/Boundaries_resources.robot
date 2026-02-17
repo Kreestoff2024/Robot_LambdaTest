@@ -1,30 +1,25 @@
 *** Settings ***
-Library        SeleniumLibrary
-Library        String
+Library   SeleniumLibrary
+Library   String
 
 *** Variables ***
-${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
-${BROWSER}                   Chrome
+${URL}            https://ecommerce-playground.lambdatest.io/index.php?route=account/register
+${BROWSER}        Chrome
 
-@{DATA1}                     Christophe    Bréhal    @tof.com    023456789    1478963    1478963
-@{DATA2}                     Christophe    Bréhal    chris@      023456789    1478963    1478963
-@{DATA3}                     Christophe    Bréhal    chris@.com  023456789    1478963    1478963
-@{DATA4}                     Christophe    Bréhal    chris@com   023456789    1478963    1478963
 
 ${FIRST_NAME}                Christophe
 ${LAST_NAME}                 Bréhal
-@{EMAILS}                    chris@        @tof.com    chris.com    chris@com    chris@tof
+${EMAIL}                     chris@tof.com
 ${TELEPHONE}                 023456789
 ${PASSWORD}                  1478963
 ${CONFIRM_PASSWORD}          1478963
 
 
 *** Keywords ***
-
 Open Home Page
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser        ${URL}        ${BROWSER}
 
-Close Browsers
+Close Page
     Close Browser
 
 Enter FIRST_NAME
@@ -54,10 +49,8 @@ Click on Continue
 Registration is confirmed
     Get WebElement    xpath=/html/body/div[1]/div[5]/div[1]/div/div/h1
 
-Uncorrect password confirmation
-    Input Password    id=input-confirm    1477414
 
-Register user
+Invalid Boundaries Name
     [Arguments]       ${first_name}    ${last_name}    ${email}    ${telephone}    ${password}    ${confirm_password}
     #Open Browser      https://ecommerce-playground.lambdatest.io/index.php?route=account/register
     Input Text        id=input-firstname    ${first_name}
@@ -69,7 +62,14 @@ Register user
     Click Element     xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label
     Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input
     Sleep    2s
-    ${message}=    Execute JavaScript    return document.querySelector("input[name='email']").validationMessage;
+    ${message}=    Execute JavaScript    return document.querySelector("input[name='firstname']").validationMessage;
     Log  ${message}    level=INFO
-    Should Not Be Empty       ${message}
+    RETURN           ${message}
     #Close Browser
+
+
+
+
+
+
+
