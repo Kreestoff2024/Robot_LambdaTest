@@ -50,9 +50,8 @@ Registration is confirmed
     Get WebElement    xpath=/html/body/div[1]/div[5]/div[1]/div/div/h1
 
 
-Invalid Boundaries Name
+Firstname Field
     [Arguments]       ${first_name}    ${last_name}    ${email}    ${telephone}    ${password}    ${confirm_password}
-    #Open Browser      https://ecommerce-playground.lambdatest.io/index.php?route=account/register
     Input Text        id=input-firstname    ${first_name}
     Input Text        id=input-lastname     ${last_name}
     Input Text        id=input-email        ${email}
@@ -65,8 +64,21 @@ Invalid Boundaries Name
     ${message}=    Execute JavaScript    return document.querySelector("input[name='firstname']").validationMessage;
     Log  ${message}    level=INFO
     RETURN           ${message}
-    #Close Browser
 
+Lastname Field
+    [Arguments]       ${first_name}    ${last_name}    ${email}    ${telephone}    ${password}    ${confirm_password}
+    Input Text        id=input-firstname    ${first_name}
+    Input Text        id=input-lastname     ${last_name}
+    Input Text        id=input-email        ${email}
+    Input Text        id=input-telephone    ${telephone}
+    Input Password    id=input-password     ${password}
+    Input Password    id=input-confirm      ${confirm_password}
+    Click Element     xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label
+    Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input
+    Sleep    2s
+    ${message}=    Execute JavaScript    return document.querySelector("input[name='lastname']").validationMessage;
+    Log  ${message}    level=INFO
+    RETURN           ${message}
 
 
 

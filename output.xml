@@ -1,309 +1,564 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-17T17:21:16.961243" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-18T14:11:10.090884" rpa="false" schemaversion="5">
 <suite id="s1" name="Boundaries tests" source="/home/christophe/Documents/Robot_LambdaTest/Tests/Boundaries_tests.robot">
 <kw name="Open Home Page" owner="Boundaries_resources" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:17.081264" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/register'.</msg>
+<msg time="2026-02-18T14:11:10.215087" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/register'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-17T17:21:17.080945" elapsed="2.221279"/>
+<status status="PASS" start="2026-02-18T14:11:10.214813" elapsed="2.499371"/>
 </kw>
-<status status="PASS" start="2026-02-17T17:21:17.080369" elapsed="2.222198"/>
+<status status="PASS" start="2026-02-18T14:11:10.214232" elapsed="2.500284"/>
 </kw>
-<test id="s1-t1" name="Test Valid Name Lengths" line="42">
+<test id="s1-t1" name="Test Valid Lastname Lengths" line="70">
 <kw name="Create List" owner="BuiltIn">
-<msg time="2026-02-17T17:21:19.304072" level="INFO">@{FIRST_NAMES1} = [ 31 | 32 ]</msg>
-<var>@{FIRST_NAMES1}</var>
+<msg time="2026-02-18T14:11:12.715903" level="INFO">@{LAST_NAMES} = [ 1 | 2 | 31 | 32 ]</msg>
+<var>@{LAST_NAMES}</var>
+<arg>1</arg>
+<arg>2</arg>
 <arg>31</arg>
 <arg>32</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.303623" elapsed="0.000822"/>
+<status status="PASS" start="2026-02-18T14:11:12.715473" elapsed="0.000818"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Generate Random String" owner="String">
-<msg time="2026-02-17T17:21:19.306248" level="INFO">${firstname} = enORSiPPgEZfrrtTxDkdUACRVurfUDv</msg>
-<var>${firstname}</var>
+<msg time="2026-02-18T14:11:12.717765" level="INFO">${lastname} = D</msg>
+<var>${lastname}</var>
 <arg>${length}</arg>
 <arg>[LETTERS]</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.305607" elapsed="0.000824"/>
+<status status="PASS" start="2026-02-18T14:11:12.717309" elapsed="0.000568"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-17T17:21:19.307020" level="INFO">${message} = Test with length=31 -&gt; enORSiPPgEZfrrtTxDkdUACRVurfUDv</msg>
+<msg time="2026-02-18T14:11:12.718283" level="INFO">${message} = Test with length=1 -&gt; D</msg>
 <var>${message}</var>
-<arg>Test with length=${length} -&gt; ${firstname}</arg>
+<arg>Test with length=${length} -&gt; ${lastname}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.306719" elapsed="0.000402"/>
+<status status="PASS" start="2026-02-18T14:11:12.718027" elapsed="0.000351"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:19.307479" level="INFO">Test with length=31 -&gt; enORSiPPgEZfrrtTxDkdUACRVurfUDv</msg>
+<msg time="2026-02-18T14:11:12.718719" level="INFO">Test with length=1 -&gt; D</msg>
 <arg>${message}</arg>
 <arg>INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.307273" elapsed="0.000315"/>
+<status status="PASS" start="2026-02-18T14:11:12.718520" elapsed="0.000315"/>
 </kw>
-<kw name="Invalid Boundaries Name" owner="Boundaries_resources">
+<kw name="Firstname Field" owner="Boundaries_resources">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.308929" level="INFO">Typing text 'enORSiPPgEZfrrtTxDkdUACRVurfUDv' into text field 'id=input-firstname'.</msg>
+<msg time="2026-02-18T14:11:12.719811" level="INFO">Typing text 'Christophe' into text field 'id=input-firstname'.</msg>
 <arg>id=input-firstname</arg>
 <arg>${first_name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.308308" elapsed="0.115594"/>
+<status status="PASS" start="2026-02-18T14:11:12.719451" elapsed="0.119085"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.424365" level="INFO">Typing text 'Bréhal' into text field 'id=input-lastname'.</msg>
+<msg time="2026-02-18T14:11:12.839075" level="INFO">Typing text 'D' into text field 'id=input-lastname'.</msg>
 <arg>id=input-lastname</arg>
 <arg>${last_name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.424107" elapsed="0.069907"/>
+<status status="PASS" start="2026-02-18T14:11:12.838786" elapsed="0.070174"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.494469" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
+<msg time="2026-02-18T14:11:12.909522" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
 <arg>id=input-email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.494217" elapsed="0.073556"/>
+<status status="PASS" start="2026-02-18T14:11:12.909173" elapsed="0.076227"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.568229" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
+<msg time="2026-02-18T14:11:12.986063" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
 <arg>id=input-telephone</arg>
 <arg>${telephone}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.567973" elapsed="0.073006"/>
+<status status="PASS" start="2026-02-18T14:11:12.985720" elapsed="0.069056"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.641495" level="INFO">Typing password into text field 'id=input-password'.</msg>
-<msg time="2026-02-17T17:21:19.672439" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-02-18T14:11:13.055249" level="INFO">Typing password into text field 'id=input-password'.</msg>
+<msg time="2026-02-18T14:11:13.085583" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=input-password</arg>
 <arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.641210" elapsed="0.071776"/>
+<status status="PASS" start="2026-02-18T14:11:13.054983" elapsed="0.070295"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.713704" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
-<msg time="2026-02-17T17:21:19.743804" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-02-18T14:11:13.125998" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
+<msg time="2026-02-18T14:11:13.155937" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=input-confirm</arg>
 <arg>${confirm_password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.713278" elapsed="0.071506"/>
+<status status="PASS" start="2026-02-18T14:11:13.125592" elapsed="0.071293"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.785204" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
+<msg time="2026-02-18T14:11:13.197299" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.784993" elapsed="0.063620"/>
+<status status="PASS" start="2026-02-18T14:11:13.197086" elapsed="0.063337"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:19.849060" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
+<msg time="2026-02-18T14:11:13.260874" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.848833" elapsed="0.076905"/>
+<status status="PASS" start="2026-02-18T14:11:13.260635" elapsed="0.076926"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-17T17:21:21.926360" level="INFO">Slept 2 seconds.</msg>
+<msg time="2026-02-18T14:11:15.338465" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-17T17:21:19.925956" elapsed="2.001215"/>
+<status status="PASS" start="2026-02-18T14:11:13.337913" elapsed="2.001194"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:21.929700" level="INFO">Executing JavaScript:
+<msg time="2026-02-18T14:11:15.341122" level="INFO">Executing JavaScript:
 return document.querySelector("input[name='firstname']").validationMessage;
 Without any arguments.</msg>
-<msg time="2026-02-17T17:21:21.952475" level="INFO">${message} = </msg>
+<msg time="2026-02-18T14:11:15.366224" level="INFO">${message} = </msg>
 <var>${message}</var>
 <arg>return document.querySelector("input[name='firstname']").validationMessage;</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-02-17T17:21:21.928016" elapsed="0.025356"/>
+<status status="PASS" start="2026-02-18T14:11:15.339669" elapsed="0.027151"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:21.956135" level="INFO"/>
+<msg time="2026-02-18T14:11:15.368747" level="INFO"/>
 <arg>${message}</arg>
 <arg>level=INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:21.954684" elapsed="0.002277"/>
+<status status="PASS" start="2026-02-18T14:11:15.367647" elapsed="0.001560"/>
 </kw>
 <return>
 <value>${message}</value>
-<status status="PASS" start="2026-02-17T17:21:21.957700" elapsed="0.000839"/>
+<status status="PASS" start="2026-02-18T14:11:15.369671" elapsed="0.000481"/>
 </return>
-<arg>${firstname}</arg>
-<arg>${LAST_NAME}</arg>
+<arg>${FIRST_NAME}</arg>
+<arg>${lastname}</arg>
 <arg>${EMAIL}</arg>
 <arg>${TELEPHONE}</arg>
 <arg>${PASSWORD}</arg>
 <arg>${CONFIRM_PASSWORD}</arg>
-<status status="PASS" start="2026-02-17T17:21:19.307845" elapsed="2.652271"/>
+<status status="PASS" start="2026-02-18T14:11:12.719045" elapsed="2.651845"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.013097" level="INFO">${message} = Warning: E-Mail Address is already registered!</msg>
+<msg time="2026-02-18T14:11:15.415280" level="INFO">${message} = Warning: E-Mail Address is already registered!</msg>
 <var>${message}</var>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div[1]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:21.961188" elapsed="0.052109"/>
+<status status="PASS" start="2026-02-18T14:11:15.371937" elapsed="0.043495"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:22.013824" level="INFO">Warning: E-Mail Address is already registered!</msg>
+<kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${message}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.013548" elapsed="0.000462"/>
+<arg>Warning: E-Mail Address is already registered!|</arg>
+<arg>Warning: You must agree to the private policy!</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2026-02-18T14:11:15.415621" elapsed="0.000326"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${message}</arg>
-<arg>Warning: E-Mail Address is already registered!</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.014257" elapsed="0.000453"/>
-</kw>
-<var name="${length}">31</var>
-<status status="PASS" start="2026-02-17T17:21:19.305307" elapsed="2.709763"/>
+<var name="${length}">1</var>
+<status status="PASS" start="2026-02-18T14:11:12.717059" elapsed="2.698975"/>
 </iter>
 <iter>
 <kw name="Generate Random String" owner="String">
-<msg time="2026-02-17T17:21:22.016441" level="INFO">${firstname} = mVFBdrojAANostVpxFWLHNrKpHQcWFHK</msg>
-<var>${firstname}</var>
+<msg time="2026-02-18T14:11:15.416595" level="INFO">${lastname} = rk</msg>
+<var>${lastname}</var>
 <arg>${length}</arg>
 <arg>[LETTERS]</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.015814" elapsed="0.000822"/>
+<status status="PASS" start="2026-02-18T14:11:15.416342" elapsed="0.000345"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-17T17:21:22.017395" level="INFO">${message} = Test with length=32 -&gt; mVFBdrojAANostVpxFWLHNrKpHQcWFHK</msg>
+<msg time="2026-02-18T14:11:15.417186" level="INFO">${message} = Test with length=2 -&gt; rk</msg>
 <var>${message}</var>
-<arg>Test with length=${length} -&gt; ${firstname}</arg>
+<arg>Test with length=${length} -&gt; ${lastname}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.016933" elapsed="0.000641"/>
+<status status="PASS" start="2026-02-18T14:11:15.416874" elapsed="0.000398"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:22.018196" level="INFO">Test with length=32 -&gt; mVFBdrojAANostVpxFWLHNrKpHQcWFHK</msg>
+<msg time="2026-02-18T14:11:15.417561" level="INFO">Test with length=2 -&gt; rk</msg>
 <arg>${message}</arg>
 <arg>INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.017853" elapsed="0.000549"/>
+<status status="PASS" start="2026-02-18T14:11:15.417396" elapsed="0.000264"/>
 </kw>
-<kw name="Invalid Boundaries Name" owner="Boundaries_resources">
+<kw name="Firstname Field" owner="Boundaries_resources">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.020049" level="INFO">Typing text 'mVFBdrojAANostVpxFWLHNrKpHQcWFHK' into text field 'id=input-firstname'.</msg>
+<msg time="2026-02-18T14:11:15.418430" level="INFO">Typing text 'Christophe' into text field 'id=input-firstname'.</msg>
 <arg>id=input-firstname</arg>
 <arg>${first_name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.019633" elapsed="0.093808"/>
+<status status="PASS" start="2026-02-18T14:11:15.418221" elapsed="0.068241"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.113944" level="INFO">Typing text 'Bréhal' into text field 'id=input-lastname'.</msg>
+<msg time="2026-02-18T14:11:15.486925" level="INFO">Typing text 'rk' into text field 'id=input-lastname'.</msg>
 <arg>id=input-lastname</arg>
 <arg>${last_name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.113676" elapsed="0.069877"/>
+<status status="PASS" start="2026-02-18T14:11:15.486667" elapsed="0.062728"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.184051" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
+<msg time="2026-02-18T14:11:15.549878" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
 <arg>id=input-email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.183798" elapsed="0.067549"/>
+<status status="PASS" start="2026-02-18T14:11:15.549611" elapsed="0.090380"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.251838" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
+<msg time="2026-02-18T14:11:15.640512" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
 <arg>id=input-telephone</arg>
 <arg>${telephone}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.251553" elapsed="0.069005"/>
+<status status="PASS" start="2026-02-18T14:11:15.640245" elapsed="0.069250"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.321026" level="INFO">Typing password into text field 'id=input-password'.</msg>
-<msg time="2026-02-17T17:21:22.351507" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-02-18T14:11:15.710125" level="INFO">Typing password into text field 'id=input-password'.</msg>
+<msg time="2026-02-18T14:11:15.737072" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=input-password</arg>
 <arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.320770" elapsed="0.069811"/>
+<status status="PASS" start="2026-02-18T14:11:15.709820" elapsed="0.067320"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.391118" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
-<msg time="2026-02-17T17:21:22.419683" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2026-02-18T14:11:15.777710" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
+<msg time="2026-02-18T14:11:15.807014" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=input-confirm</arg>
 <arg>${confirm_password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.390805" elapsed="0.068058"/>
+<status status="PASS" start="2026-02-18T14:11:15.777399" elapsed="0.070082"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.459280" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
+<msg time="2026-02-18T14:11:15.847920" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.459066" elapsed="0.059241"/>
+<status status="PASS" start="2026-02-18T14:11:15.847691" elapsed="0.058052"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:22.518735" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
+<msg time="2026-02-18T14:11:15.906154" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.518518" elapsed="0.422635"/>
+<status status="PASS" start="2026-02-18T14:11:15.905944" elapsed="0.066924"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-17T17:21:24.943125" level="INFO">Slept 2 seconds.</msg>
+<msg time="2026-02-18T14:11:17.973568" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-17T17:21:22.941966" elapsed="2.001909"/>
+<status status="PASS" start="2026-02-18T14:11:15.973116" elapsed="2.001330"/>
 </kw>
 <kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:24.946716" level="INFO">Executing JavaScript:
+<msg time="2026-02-18T14:11:17.976919" level="INFO">Executing JavaScript:
 return document.querySelector("input[name='firstname']").validationMessage;
 Without any arguments.</msg>
-<msg time="2026-02-17T17:21:24.965784" level="INFO">${message} = </msg>
+<msg time="2026-02-18T14:11:17.993581" level="INFO">${message} = </msg>
 <var>${message}</var>
 <arg>return document.querySelector("input[name='firstname']").validationMessage;</arg>
 <doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2026-02-17T17:21:24.944672" elapsed="0.021619"/>
+<status status="PASS" start="2026-02-18T14:11:17.975214" elapsed="0.018704"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:24.967946" level="INFO"/>
+<msg time="2026-02-18T14:11:17.994874" level="INFO"/>
 <arg>${message}</arg>
 <arg>level=INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:24.966992" elapsed="0.001317"/>
+<status status="PASS" start="2026-02-18T14:11:17.994288" elapsed="0.000845"/>
 </kw>
 <return>
 <value>${message}</value>
-<status status="PASS" start="2026-02-17T17:21:24.968733" elapsed="0.000421"/>
+<status status="PASS" start="2026-02-18T14:11:17.995366" elapsed="0.000212"/>
 </return>
-<arg>${firstname}</arg>
-<arg>${LAST_NAME}</arg>
+<arg>${FIRST_NAME}</arg>
+<arg>${lastname}</arg>
 <arg>${EMAIL}</arg>
 <arg>${TELEPHONE}</arg>
 <arg>${PASSWORD}</arg>
 <arg>${CONFIRM_PASSWORD}</arg>
-<status status="PASS" start="2026-02-17T17:21:22.018788" elapsed="2.951047"/>
+<status status="PASS" start="2026-02-18T14:11:15.417852" elapsed="2.578114"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-02-17T17:21:25.014355" level="INFO">${message} = Warning: You must agree to the Privacy Policy!</msg>
+<msg time="2026-02-18T14:11:18.017053" level="INFO">${message} = Warning: You must agree to the Privacy Policy!</msg>
 <var>${message}</var>
 <arg>xpath=/html/body/div[1]/div[5]/div[1]/div[1]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-17T17:21:24.970505" elapsed="0.044221"/>
+<status status="PASS" start="2026-02-18T14:11:17.996317" elapsed="0.020918"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Warning: E-Mail Address is already registered!|</arg>
+<arg>Warning: You must agree to the private policy!</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.017479" elapsed="0.000323"/>
+</kw>
+<var name="${length}">2</var>
+<status status="PASS" start="2026-02-18T14:11:15.416207" elapsed="2.601691"/>
+</iter>
+<iter>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T14:11:18.018511" level="INFO">${lastname} = KQVgGPvRCbPnMLKsxjbcvPyrVaxhTVG</msg>
+<var>${lastname}</var>
+<arg>${length}</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.018220" elapsed="0.000390"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-18T14:11:18.019021" level="INFO">${message} = Test with length=31 -&gt; KQVgGPvRCbPnMLKsxjbcvPyrVaxhTVG</msg>
+<var>${message}</var>
+<arg>Test with length=${length} -&gt; ${lastname}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.018769" elapsed="0.000346"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-17T17:21:25.016143" level="INFO">Warning: You must agree to the Privacy Policy!</msg>
+<msg time="2026-02-18T14:11:18.019443" level="INFO">Test with length=31 -&gt; KQVgGPvRCbPnMLKsxjbcvPyrVaxhTVG</msg>
 <arg>${message}</arg>
+<arg>INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-17T17:21:25.015432" elapsed="0.001004"/>
+<status status="PASS" start="2026-02-18T14:11:18.019260" elapsed="0.000300"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2026-02-17T17:21:25.017388" level="FAIL">Warning: You must agree to the Privacy Policy! != Warning: E-Mail Address is already registered!</msg>
+<kw name="Firstname Field" owner="Boundaries_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.020417" level="INFO">Typing text 'Christophe' into text field 'id=input-firstname'.</msg>
+<arg>id=input-firstname</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.020189" elapsed="0.067350"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.088061" level="INFO">Typing text 'KQVgGPvRCbPnMLKsxjbcvPyrVaxhTVG' into text field 'id=input-lastname'.</msg>
+<arg>id=input-lastname</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.087751" elapsed="0.083489"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.171851" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
+<arg>id=input-email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.171530" elapsed="0.066327"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.238310" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
+<arg>id=input-telephone</arg>
+<arg>${telephone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.238062" elapsed="0.068329"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.306920" level="INFO">Typing password into text field 'id=input-password'.</msg>
+<msg time="2026-02-18T14:11:18.335729" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.306600" elapsed="0.069805"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.377050" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
+<msg time="2026-02-18T14:11:18.405046" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-confirm</arg>
+<arg>${confirm_password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.376675" elapsed="0.070217"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.447299" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.447094" elapsed="0.052448"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:18.499967" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.499758" elapsed="0.391705"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T14:11:20.892479" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T14:11:18.891895" elapsed="2.001329"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:20.895550" level="INFO">Executing JavaScript:
+return document.querySelector("input[name='firstname']").validationMessage;
+Without any arguments.</msg>
+<msg time="2026-02-18T14:11:20.916941" level="INFO">${message} = </msg>
+<var>${message}</var>
+<arg>return document.querySelector("input[name='firstname']").validationMessage;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.893966" elapsed="0.023707"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-18T14:11:20.920219" level="INFO"/>
 <arg>${message}</arg>
-<arg>Warning: E-Mail Address is already registered!</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2026-02-17T17:21:25.016786" elapsed="0.001597">Warning: You must agree to the Privacy Policy! != Warning: E-Mail Address is already registered!</status>
+<arg>level=INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.918799" elapsed="0.002026"/>
+</kw>
+<return>
+<value>${message}</value>
+<status status="PASS" start="2026-02-18T14:11:20.921535" elapsed="0.000606"/>
+</return>
+<arg>${FIRST_NAME}</arg>
+<arg>${lastname}</arg>
+<arg>${EMAIL}</arg>
+<arg>${TELEPHONE}</arg>
+<arg>${PASSWORD}</arg>
+<arg>${CONFIRM_PASSWORD}</arg>
+<status status="PASS" start="2026-02-18T14:11:18.019777" elapsed="2.903808"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:20.962155" level="INFO">${message} = Warning: E-Mail Address is already registered!</msg>
+<var>${message}</var>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.924774" elapsed="0.037594"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Warning: E-Mail Address is already registered!|</arg>
+<arg>Warning: You must agree to the private policy!</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.962656" elapsed="0.000399"/>
+</kw>
+<var name="${length}">31</var>
+<status status="PASS" start="2026-02-18T14:11:18.018078" elapsed="2.945135"/>
+</iter>
+<iter>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-18T14:11:20.964240" level="INFO">${lastname} = MRZRHZZbanPSCDBROtCxJxQIXAHZdKeK</msg>
+<var>${lastname}</var>
+<arg>${length}</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.963755" elapsed="0.000649"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-18T14:11:20.965052" level="INFO">${message} = Test with length=32 -&gt; MRZRHZZbanPSCDBROtCxJxQIXAHZdKeK</msg>
+<var>${message}</var>
+<arg>Test with length=${length} -&gt; ${lastname}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.964647" elapsed="0.000564"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-18T14:11:20.965736" level="INFO">Test with length=32 -&gt; MRZRHZZbanPSCDBROtCxJxQIXAHZdKeK</msg>
+<arg>${message}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.965438" elapsed="0.000458"/>
+</kw>
+<kw name="Firstname Field" owner="Boundaries_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:20.967217" level="INFO">Typing text 'Christophe' into text field 'id=input-firstname'.</msg>
+<arg>id=input-firstname</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:20.966896" elapsed="0.083546"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.050985" level="INFO">Typing text 'MRZRHZZbanPSCDBROtCxJxQIXAHZdKeK' into text field 'id=input-lastname'.</msg>
+<arg>id=input-lastname</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.050708" elapsed="0.089604"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.140963" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
+<arg>id=input-email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.140650" elapsed="0.066264"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.207621" level="INFO">Typing text '023456789' into text field 'id=input-telephone'.</msg>
+<arg>id=input-telephone</arg>
+<arg>${telephone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.207199" elapsed="0.069827"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.277481" level="INFO">Typing password into text field 'id=input-password'.</msg>
+<msg time="2026-02-18T14:11:21.304858" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.277232" elapsed="0.067606"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.345267" level="INFO">Typing password into text field 'id=input-confirm'.</msg>
+<msg time="2026-02-18T14:11:21.374016" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-confirm</arg>
+<arg>${confirm_password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.345032" elapsed="0.069865"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.415302" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.415098" elapsed="0.055646"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:21.471152" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.470944" elapsed="0.058709"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-18T14:11:23.530257" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-18T14:11:21.529865" elapsed="2.001148"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:23.533249" level="INFO">Executing JavaScript:
+return document.querySelector("input[name='firstname']").validationMessage;
+Without any arguments.</msg>
+<msg time="2026-02-18T14:11:23.553010" level="INFO">${message} = </msg>
+<var>${message}</var>
+<arg>return document.querySelector("input[name='firstname']").validationMessage;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-02-18T14:11:23.531730" elapsed="0.021769"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-18T14:11:23.554681" level="INFO"/>
+<arg>${message}</arg>
+<arg>level=INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-18T14:11:23.554045" elapsed="0.000945"/>
+</kw>
+<return>
+<value>${message}</value>
+<status status="PASS" start="2026-02-18T14:11:23.555296" elapsed="0.000259"/>
+</return>
+<arg>${FIRST_NAME}</arg>
+<arg>${lastname}</arg>
+<arg>${EMAIL}</arg>
+<arg>${TELEPHONE}</arg>
+<arg>${PASSWORD}</arg>
+<arg>${CONFIRM_PASSWORD}</arg>
+<status status="PASS" start="2026-02-18T14:11:20.966207" elapsed="2.589824"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-02-18T14:11:23.581510" level="INFO">${message} = Warning: You must agree to the Privacy Policy!</msg>
+<var>${message}</var>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-18T14:11:23.556505" elapsed="0.025157"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Warning: E-Mail Address is already registered!|</arg>
+<arg>Warning: You must agree to the private policy!</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2026-02-18T14:11:23.581880" elapsed="0.000276"/>
 </kw>
 <var name="${length}">32</var>
-<status status="FAIL" start="2026-02-17T17:21:22.015470" elapsed="3.003234">Warning: You must agree to the Privacy Policy! != Warning: E-Mail Address is already registered!</status>
+<status status="PASS" start="2026-02-18T14:11:20.963503" elapsed="2.618756"/>
 </iter>
 <var>${length}</var>
-<value>@{FIRST_NAMES1}</value>
-<status status="FAIL" start="2026-02-17T17:21:19.304853" elapsed="5.714183">Warning: You must agree to the Privacy Policy! != Warning: E-Mail Address is already registered!</status>
+<value>@{LAST_NAMES}</value>
+<status status="PASS" start="2026-02-18T14:11:12.716627" elapsed="10.865746"/>
 </for>
-<status status="FAIL" start="2026-02-17T17:21:19.302840" elapsed="5.716996">Warning: You must agree to the Privacy Policy! != Warning: E-Mail Address is already registered!</status>
+<status status="PASS" start="2026-02-18T14:11:12.714720" elapsed="10.867920"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2026-02-17T17:21:25.096638" level="ERROR">Error terminating service process.
+<msg time="2026-02-18T14:11:23.648202" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()
@@ -316,22 +571,22 @@ Traceback (most recent call last):
     ~~~~~~~^^^^^^^^^^^^^^^
 PermissionError: [Errno 13] Permission denied</msg>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-02-17T17:21:25.023193" elapsed="0.074250"/>
+<status status="PASS" start="2026-02-18T14:11:23.583815" elapsed="0.065211"/>
 </kw>
-<status status="FAIL" start="2026-02-17T17:21:16.963269" elapsed="8.134366"/>
+<status status="PASS" start="2026-02-18T14:11:10.093159" elapsed="13.556077"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Boundaries tests" id="s1" pass="0" fail="1" skip="0">Boundaries tests</stat>
+<stat name="Boundaries tests" id="s1" pass="1" fail="0" skip="0">Boundaries tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-02-17T17:21:25.096638" level="ERROR">Error terminating service process.
+<msg time="2026-02-18T14:11:23.648202" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()
