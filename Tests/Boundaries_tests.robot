@@ -14,7 +14,7 @@ Test Invalid Firstame Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${firstname}
         Log    ${message}    INFO
 
-        Firstname Field
+        All Fields
         ...    ${firstname}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
@@ -34,7 +34,7 @@ Test Valid Firstame Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${firstname}
         Log    ${message}    INFO
 
-        Firstname Field
+        All Fields
         ...    ${firstname}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
@@ -56,7 +56,7 @@ Test Invalid Lastame Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${lastname}
         Log    ${message}    INFO
 
-        Lastname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${lastname}
         ...    ${EMAIL}
@@ -76,7 +76,7 @@ Test Valid Lastname Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${lastname}
         Log    ${message}    INFO
 
-        Firstname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${lastname}
         ...    ${EMAIL}
@@ -99,7 +99,7 @@ Test Invalid Telephone Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${telephone}
         Log    ${message}    INFO
 
-        Lastname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
@@ -120,7 +120,7 @@ Test Valid Telephone Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${telephone}
         Log    ${message}    INFO
 
-        Firstname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
@@ -143,7 +143,7 @@ Test Invalid Password Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${password}
         Log    ${message}    INFO
 
-        Lastname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
@@ -165,7 +165,7 @@ Test Valid Password Lengths
         ${message}=    Set Variable    Test with length=${length} -> ${password}
         Log    ${message}    INFO
 
-        Firstname Field
+        All Fields
         ...    ${FIRST_NAME}
         ...    ${LAST_NAME}
         ...    ${EMAIL}
