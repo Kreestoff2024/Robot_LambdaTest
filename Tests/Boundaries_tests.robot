@@ -1,5 +1,5 @@
 *** Settings ***
-Resource              ../Resources/Boundaries_resources.robot
+Resource              ../Resources/Resource_boundaries.resource
 Suite Setup           Open Home Page
 Suite Teardown        Close Browser
 

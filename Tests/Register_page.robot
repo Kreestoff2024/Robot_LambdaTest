@@ -1,5 +1,5 @@
 *** Settings ***
-Resource              ../Resources/Register_resource.robot
+Resource              ../Resources/Resource_register.resource
 Suite Setup           Open Home Page
 Suite Teardown        Close Browsers
 

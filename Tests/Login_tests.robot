@@ -1,5 +1,6 @@
 *** Settings ***
-Resource           ../Resources/Login_resource.robot
+Resource           ../Resources/Resource_login.resource
+
 Suite Setup        Open Login Page
 Suite Teardown     Close Browser
 
@@ -14,6 +15,21 @@ Login to account
     Sleep    2s
     ${message}        Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]
     Should Be Equal    ${message}    Logout
+
+Login and Logout
+    [Tags]    login_and_logout
+    Input Text                       id=input-email       chris@tof.com
+    Input Password                   id=input-password    1478963
+    Click Button                     xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]
+    Click Link                       Logout
+    Page Should Contain              Account Logout 
+
+Login Test
+    Login as    chris@tof.com    1478963
+    Sleep    2s
+    Login must be accepted
+    Page must contain 1 elements    1
 
 
 #Tests non passants

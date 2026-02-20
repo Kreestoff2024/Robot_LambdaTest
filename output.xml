@@ -1,63 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-19T15:57:42.485383" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-20T16:28:17.381553" rpa="false" schemaversion="5">
 <suite id="s1" name="Login tests" source="/home/christophe/Documents/Robot_LambdaTest/Tests/Login_tests.robot">
-<kw name="Open Login Page" owner="Login_resource" type="SETUP">
+<kw name="Open Login Page" owner="Resource_login" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-19T15:57:42.606581" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/login'.</msg>
+<msg time="2026-02-20T16:28:17.504302" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/login'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-19T15:57:42.606217" elapsed="2.147378"/>
+<status status="PASS" start="2026-02-20T16:28:17.504014" elapsed="2.065450"/>
 </kw>
-<status status="PASS" start="2026-02-19T15:57:42.605664" elapsed="2.148140"/>
+<status status="PASS" start="2026-02-20T16:28:17.503435" elapsed="2.066317"/>
 </kw>
-<test id="s1-t1" name="The user enters an unknown email" line="67">
-<kw name="Forgot Password Email Field" owner="Login_resource">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2026-02-19T15:57:44.755709" level="INFO">Clicking link 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/div[2]/a'.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/div[2]/a</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-19T15:57:44.755103" elapsed="0.610970"/>
+<test id="s1-t1" name="Login Test" line="28">
+<kw name="Login as" owner="Resource_login">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:19.596176" level="INFO">Element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input' is displayed.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
+<arg>message=We are not on the login page</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-20T16:28:19.571303" elapsed="0.025152"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-19T15:57:45.366624" level="INFO">Typing text 'kris@egf.com' into text field 'xpath=//*[@id="input-email"]'.</msg>
-<arg>xpath=//*[@id="input-email"]</arg>
+<msg time="2026-02-20T16:28:19.597001" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
+<arg>id=input-email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-19T15:57:45.366350" elapsed="0.092104"/>
+<status status="PASS" start="2026-02-20T16:28:19.596680" elapsed="0.100748"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:19.698273" level="INFO">Typing password into text field 'id=input-password'.</msg>
+<msg time="2026-02-20T16:28:19.730672" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-20T16:28:19.697728" elapsed="0.086473"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-19T15:57:45.459030" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[2]/button'.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[2]/button</arg>
+<msg time="2026-02-20T16:28:19.784867" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-19T15:57:45.458734" elapsed="0.076857"/>
+<status status="PASS" start="2026-02-20T16:28:19.784540" elapsed="0.551414"/>
+</kw>
+<arg>chris@tof.com</arg>
+<arg>1478963</arg>
+<doc>Fill in the login form and submit it</doc>
+<status status="PASS" start="2026-02-20T16:28:19.570671" elapsed="0.765953"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-19T15:57:47.536292" level="INFO">Slept 2 seconds.</msg>
+<msg time="2026-02-20T16:28:22.339343" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-19T15:57:45.535793" elapsed="2.001228"/>
+<status status="PASS" start="2026-02-20T16:28:20.338051" elapsed="2.001727"/>
 </kw>
-<arg>${DATA2}[0]</arg>
-<status status="PASS" start="2026-02-19T15:57:44.754588" elapsed="2.783010"/>
+<kw name="Login must be accepted" owner="Resource_login">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.356906" level="INFO">Element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input' did not exist.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
+<arg>message=We are still on the login page</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.340838" elapsed="0.016443"/>
 </kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-02-19T15:57:47.605042" level="INFO">${message} = Warning: The E-Mail Address was not found in our records, please try again!</msg>
-<var>${message}</var>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div[1]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-19T15:57:47.538525" elapsed="0.066811"/>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.358161" level="INFO">Verifying element 'xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]' contains exact text 'Logout'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]</arg>
+<arg>Logout</arg>
+<arg>message=the login did not redirect to the account page</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.357653" elapsed="0.046676"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${message}</arg>
-<arg>Warning: The E-Mail Address was not found in our records, please try again!</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-02-19T15:57:47.605829" elapsed="0.000625"/>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.413671" level="INFO">Current location is 'https://ecommerce-playground.lambdatest.io/index.php?route=account/account'.</msg>
+<arg>${URL_Account}</arg>
+<arg>message=the login did not redirect to the right address</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.404759" elapsed="0.009273"/>
 </kw>
-<status status="PASS" start="2026-02-19T15:57:44.753921" elapsed="2.853088"/>
+<doc>Verify that the login form that just been sent resulted to a success and to redirection to the Account page</doc>
+<status status="PASS" start="2026-02-20T16:28:22.340266" elapsed="0.074018"/>
+</kw>
+<kw name="Page must contain 1 elements" owner="Resource_login" source_name="Page must contain ${element_number} elements">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.424525" level="INFO">Current location is 'https://ecommerce-playground.lambdatest.io/index.php?route=account/account'.</msg>
+<arg>${URL_Account}</arg>
+<arg>message=We are not on the account page</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.415809" elapsed="0.009180"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.445437" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;]</msg>
+<var>${elements}</var>
+<arg>class=account-account</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.425468" elapsed="0.020143"/>
+</kw>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2026-02-20T16:28:22.446048" level="INFO">Length is 1.</msg>
+<arg>${elements}</arg>
+<arg>${element_number}</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.445800" elapsed="0.000379"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-20T16:28:22.456830" level="INFO">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;' is displayed.</msg>
+<arg>${emt}</arg>
+<arg>message=an element is present, but not visible</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.446953" elapsed="0.010083"/>
+</kw>
+<arg>Element Should Be Visible</arg>
+<arg>${emt}</arg>
+<arg>message=an element is present, but not visible</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2026-02-20T16:28:22.446726" elapsed="0.010459"/>
+</kw>
+<var name="${emt}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;</var>
+<status status="PASS" start="2026-02-20T16:28:22.446549" elapsed="0.010745"/>
+</iter>
+<var>${emt}</var>
+<value>@{elements}</value>
+<status status="PASS" start="2026-02-20T16:28:22.446295" elapsed="0.011155"/>
+</for>
+<arg>1</arg>
+<doc>Verify that the page displays the right number of elements</doc>
+<status status="PASS" start="2026-02-20T16:28:22.414983" elapsed="0.042636"/>
+</kw>
+<status status="PASS" start="2026-02-20T16:28:19.569940" elapsed="2.888019"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2026-02-19T15:57:47.676045" level="ERROR">Error terminating service process.
+<msg time="2026-02-20T16:28:22.527007" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()
@@ -70,9 +143,9 @@ Traceback (most recent call last):
     ~~~~~~~^^^^^^^^^^^^^^^
 PermissionError: [Errno 13] Permission denied</msg>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-02-19T15:57:47.611005" elapsed="0.065812"/>
+<status status="PASS" start="2026-02-20T16:28:22.458961" elapsed="0.069218"/>
 </kw>
-<status status="PASS" start="2026-02-19T15:57:42.487387" elapsed="5.189587"/>
+<status status="PASS" start="2026-02-20T16:28:17.384143" elapsed="5.144200"/>
 </suite>
 <statistics>
 <total>
@@ -85,7 +158,7 @@ PermissionError: [Errno 13] Permission denied</msg>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-02-19T15:57:47.676045" level="ERROR">Error terminating service process.
+<msg time="2026-02-20T16:28:22.527007" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()
