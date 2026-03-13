@@ -3,15 +3,18 @@ Library        SeleniumLibrary
 
 
 *** Variables ***
-${URL_main}        https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-${BROWSER}         Chrome        options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
+${URL_main}          https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+${BROWSER}           Chrome        
+${CHROME_OPTIONS}    add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 @{DATA_billing}           Chris     Toffe    10, rue de la plage    Granville    50100
 @{DATA_login}             chris@tof.com      1478963
 
+
+
 *** Keywords ***
 Open main page
-    Open Browser    ${URL_main}        ${BROWSER}
+    Open Browser    ${URL_main}        ${BROWSER}    options=${CHROME_OPTIONS}
     Set Window Size    1920    1080
 
 Close page
