@@ -1,7 +1,7 @@
 *** Settings ***
 Library        SeleniumLibrary
 Library        String
-
+Library        browser_options
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
 ${BROWSER}                   Chrome        

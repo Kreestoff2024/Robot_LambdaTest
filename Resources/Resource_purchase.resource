@@ -1,6 +1,6 @@
 *** Settings ***
 Library        SeleniumLibrary
-
+Library        browser_options
 
 *** Variables ***
 ${URL_main}          https://ecommerce-playground.lambdatest.io/index.php?route=common/home

@@ -1,6 +1,7 @@
 *** Settings ***
-Library   SeleniumLibrary
-Library   String
+Library    SeleniumLibrary
+Library    String
+Library    browser_options.py
 
 *** Variables ***
 ${URL}               https://ecommerce-playground.lambdatest.io/index.php?route=account/register
