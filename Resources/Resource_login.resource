@@ -3,9 +3,10 @@ Library        SeleniumLibrary
 
 
 *** Variables ***
-${URL}            https://ecommerce-playground.lambdatest.io/index.php?route=account/login
-${URL_Account}    https://ecommerce-playground.lambdatest.io/index.php?route=account/account
-${BROWSER}        Chrome
+${URL}                    https://ecommerce-playground.lambdatest.io/index.php?route=account/login
+${URL_Account}            https://ecommerce-playground.lambdatest.io/index.php?route=account/account
+${URL_Account_Logout}     https://ecommerce-playground.lambdatest.io/index.php?route=account/logout
+${BROWSER}                Chrome        options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 ${EMAIL}          chris@tof.com
 ${PASSWORD}       1478963 
@@ -86,4 +87,17 @@ Page must contain ${element_number} elements
         ...                            Element Should Be Visible        ${emt}
         ...                            message=an element is present, but not visible
     END
-    
+
+Delete the status of the site and log out
+    [Documentation]    This keyword is to be used in Teardown. It resets the status of the site, as if we just opened the browser
+    ${URL_Account}        Run Keyword And Return Status    Location Should Be    ${URL}
+    IF   ${URL_Account}
+         Reload Page
+         Clear Element Text    id=input-email
+         Clear Element Text    id=input-password 
+    ELSE
+        Click Link            xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]
+        Click Link            xpath=/html/body/div[1]/div[5]/header/div[3]/div[1]/div/div[3]/nav/div/ul/li[6]/a
+        Location Should Be    ${URL}
+    END
+

@@ -1,136 +1,288 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-02-20T16:28:17.381553" rpa="false" schemaversion="5">
-<suite id="s1" name="Login tests" source="/home/christophe/Documents/Robot_LambdaTest/Tests/Login_tests.robot">
-<kw name="Open Login Page" owner="Resource_login" type="SETUP">
+<robot generator="Robot 7.3.2 (Python 3.13.7 on linux)" generated="2026-03-04T11:51:37.569861" rpa="false" schemaversion="5">
+<suite id="s1" name="Purchase tests" source="/home/christophe/Documents/Robot_LambdaTest/Tests/Purchase_tests.robot">
+<kw name="Open main page" owner="Resource_purchase" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:17.504302" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=account/login'.</msg>
-<arg>${URL}</arg>
+<msg time="2026-03-04T11:51:37.690465" level="INFO">Opening browser 'Chrome' to base url 'https://ecommerce-playground.lambdatest.io/index.php?route=common/home'.</msg>
+<arg>${URL_main}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-20T16:28:17.504014" elapsed="2.065450"/>
+<status status="PASS" start="2026-03-04T11:51:37.689975" elapsed="2.547937"/>
 </kw>
-<status status="PASS" start="2026-02-20T16:28:17.503435" elapsed="2.066317"/>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-03-04T11:51:40.238187" elapsed="0.335513"/>
 </kw>
-<test id="s1-t1" name="Login Test" line="28">
-<kw name="Login as" owner="Resource_login">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:19.596176" level="INFO">Element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input' is displayed.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
-<arg>message=We are not on the login page</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-20T16:28:19.571303" elapsed="0.025152"/>
+<status status="PASS" start="2026-03-04T11:51:37.689009" elapsed="2.884893"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:19.597001" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-email'.</msg>
-<arg>id=input-email</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-20T16:28:19.596680" elapsed="0.100748"/>
+<test id="s1-t1" name="Purchase an item" line="26">
+<kw name="Choose category (printers)" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:40.575750" level="INFO">Clicking element 'id=entry_217832'.</msg>
+<arg>id=entry_217832</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:40.575185" elapsed="0.122637"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:19.698273" level="INFO">Typing password into text field 'id=input-password'.</msg>
-<msg time="2026-02-20T16:28:19.730672" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=input-password</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-20T16:28:19.697728" elapsed="0.086473"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:40.698250" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[1]/div/div/nav/div/ul/li[7]/a'.</msg>
+<arg>xpath=/html/body/div[1]/div[1]/div/div/nav/div/ul/li[7]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:40.698026" elapsed="1.625272"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:19.784867" level="INFO">Clicking button 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input'.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-20T16:28:19.784540" elapsed="0.551414"/>
+<status status="PASS" start="2026-03-04T11:51:40.574679" elapsed="1.748863"/>
 </kw>
-<arg>chris@tof.com</arg>
-<arg>1478963</arg>
-<doc>Fill in the login form and submit it</doc>
-<status status="PASS" start="2026-02-20T16:28:19.570671" elapsed="0.765953"/>
+<kw name="Click on third page" owner="Resource_purchase">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:42.324524" level="INFO">Clicking link 'xpath=/html/body/div[1]/div[6]/div[1]/div[3]/div/div[1]/div[7]/div/div[1]/ul/li[3]/a'.</msg>
+<arg>xpath=/html/body/div[1]/div[6]/div[1]/div[3]/div/div[1]/div[7]/div/div[1]/ul/li[3]/a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:42.324220" elapsed="0.698945"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:42.323863" elapsed="0.699560"/>
+</kw>
+<kw name="Select Apple Cinema 30" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:43.024783" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[6]/div[1]/div[3]/div/div[1]/div[6]/div/div[4]/div/div[1]/div[1]/a/div/div[1]/img'.</msg>
+<arg>xpath=/html/body/div[1]/div[6]/div[1]/div[3]/div/div[1]/div[6]/div/div[4]/div/div[1]/div[1]/a/div/div[1]/img</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:43.024370" elapsed="1.273398"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:43.023860" elapsed="1.274174"/>
+</kw>
+<kw name="Select size" owner="Resource_purchase">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:44.299335" level="INFO">Selecting options from selection list 'xpath=//*[@id="input-option236-216836"]' by value 64.</msg>
+<arg>xpath=//*[@id="input-option236-216836"]</arg>
+<arg>64</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-03-04T11:51:44.298917" elapsed="0.088703"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:44.298473" elapsed="0.089303"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-20T16:28:22.339343" level="INFO">Slept 2 seconds.</msg>
+<msg time="2026-03-04T11:51:46.388577" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-20T16:28:20.338051" elapsed="2.001727"/>
+<status status="PASS" start="2026-03-04T11:51:44.388017" elapsed="2.002599"/>
 </kw>
-<kw name="Login must be accepted" owner="Resource_login">
-<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.356906" level="INFO">Element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input' did not exist.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input</arg>
-<arg>message=We are still on the login page</arg>
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.340838" elapsed="0.016443"/>
+<kw name="Click on Buy now" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:46.396548" level="INFO">Clicking element 'id=entry_216843'.</msg>
+<arg>id=entry_216843</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:46.394944" elapsed="0.099742"/>
 </kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.358161" level="INFO">Verifying element 'xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]' contains exact text 'Logout'.</msg>
-<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/aside/div/a[14]</arg>
-<arg>Logout</arg>
-<arg>message=the login did not redirect to the account page</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.357653" elapsed="0.046676"/>
+<status status="PASS" start="2026-03-04T11:51:46.392771" elapsed="0.102079"/>
 </kw>
-<kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.413671" level="INFO">Current location is 'https://ecommerce-playground.lambdatest.io/index.php?route=account/account'.</msg>
-<arg>${URL_Account}</arg>
-<arg>message=the login did not redirect to the right address</arg>
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.404759" elapsed="0.009273"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-03-04T11:51:48.495519" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-03-04T11:51:46.495181" elapsed="2.000579"/>
 </kw>
-<doc>Verify that the login form that just been sent resulted to a success and to redirection to the Account page</doc>
-<status status="PASS" start="2026-02-20T16:28:22.340266" elapsed="0.074018"/>
+<kw name="Click on Login" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:48.496640" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]'.</msg>
+<arg>xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:48.496358" elapsed="0.082343"/>
 </kw>
-<kw name="Page must contain 1 elements" owner="Resource_login" source_name="Page must contain ${element_number} elements">
-<kw name="Location Should Be" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.424525" level="INFO">Current location is 'https://ecommerce-playground.lambdatest.io/index.php?route=account/account'.</msg>
-<arg>${URL_Account}</arg>
-<arg>message=We are not on the account page</arg>
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.415809" elapsed="0.009180"/>
+<doc>I am a registered user</doc>
+<status status="PASS" start="2026-03-04T11:51:48.496043" elapsed="0.082887"/>
 </kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.445437" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;]</msg>
-<var>${elements}</var>
-<arg>class=account-account</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.425468" elapsed="0.020143"/>
+<kw name="Fill in the Account Login form" owner="Resource_purchase">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:48.580119" level="INFO">Typing text 'chris@tof.com' into text field 'id=input-login-email'.</msg>
+<arg>id=input-login-email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:48.579817" elapsed="0.107117"/>
 </kw>
-<kw name="Length Should Be" owner="BuiltIn">
-<msg time="2026-02-20T16:28:22.446048" level="INFO">Length is 1.</msg>
-<arg>${elements}</arg>
-<arg>${element_number}</arg>
-<doc>Verifies that the length of the given item is correct.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.445800" elapsed="0.000379"/>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:48.687422" level="INFO">Typing password into text field 'id=input-login-password'.</msg>
+<msg time="2026-03-04T11:51:48.719348" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=input-login-password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:48.687138" elapsed="0.076644"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2026-02-20T16:28:22.456830" level="INFO">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;' is displayed.</msg>
-<arg>${emt}</arg>
-<arg>message=an element is present, but not visible</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.446953" elapsed="0.010083"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:48.764190" level="INFO">Clicking button 'id=button-login'.</msg>
+<arg>id=button-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:48.763976" elapsed="0.071496"/>
 </kw>
-<arg>Element Should Be Visible</arg>
-<arg>${emt}</arg>
-<arg>message=an element is present, but not visible</arg>
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.446726" elapsed="0.010459"/>
+<arg>@{DATA_login}</arg>
+<status status="PASS" start="2026-03-04T11:51:48.579394" elapsed="0.256242"/>
 </kw>
-<var name="${emt}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3a788de92722700a4331a1b485d8cf37", element="f.5C4CBE897D9BD72806EAC4113DB61D1E.d.CCDDB4C73FF921A9C76F72130563D832.e.82")&gt;</var>
-<status status="PASS" start="2026-02-20T16:28:22.446549" elapsed="0.010745"/>
-</iter>
-<var>${emt}</var>
-<value>@{elements}</value>
-<status status="PASS" start="2026-02-20T16:28:22.446295" elapsed="0.011155"/>
-</for>
-<arg>1</arg>
-<doc>Verify that the page displays the right number of elements</doc>
-<status status="PASS" start="2026-02-20T16:28:22.414983" elapsed="0.042636"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-03-04T11:51:50.836574" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-03-04T11:51:48.836004" elapsed="2.001261"/>
 </kw>
-<status status="PASS" start="2026-02-20T16:28:19.569940" elapsed="2.888019"/>
+<kw name="Use Existing Address" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:50.840000" level="INFO">Clicking element 'xpath=//*[@id="form-checkout"]/div/div[2]/div/div[5]/label'.</msg>
+<arg>xpath=//*[@id="form-checkout"]/div/div[2]/div/div[5]/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:50.839389" elapsed="0.079435"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:50.838246" elapsed="0.080783"/>
+</kw>
+<kw name="Agree to terms and conditions" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:50.920146" level="INFO">Clicking element 'xpath=//label[@for="input-agree"]'.</msg>
+<arg>xpath=//label[@for="input-agree"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:50.919836" elapsed="0.056204"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:50.919378" elapsed="0.056819"/>
+</kw>
+<kw name="Agree to terms and conditions" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:50.976905" level="INFO">Clicking element 'xpath=//label[@for="input-agree"]'.</msg>
+<arg>xpath=//label[@for="input-agree"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-04T11:51:50.976723" elapsed="0.054658"/>
+</kw>
+<status status="PASS" start="2026-03-04T11:51:50.976471" elapsed="0.055114"/>
+</kw>
+<kw name="Click Continue" owner="Resource_purchase">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:51.032401" level="INFO">Clicking element 'xpath=//*[@id="button-save"]'.</msg>
+<msg time="2026-03-04T11:51:52.226113" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-03-04T11:51:52.226428" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1201, 903)
+  (Session info: chrome=145.0.7632.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+#0 0x5f321b0f44ba &lt;unknown&gt;
+#1 0x5f321ab297b3 &lt;unknown&gt;
+#2 0x5f321ab8522b &lt;unknown&gt;
+#3 0x5f321ab82e62 &lt;unknown&gt;
+#4 0x5f321ab80369 &lt;unknown&gt;
+#5 0x5f321ab7f467 &lt;unknown&gt;
+#6 0x5f321ab71f72 &lt;unknown&gt;
+#7 0x5f321ab718b8 &lt;unknown&gt;
+#8 0x5f321abc6345 &lt;unknown&gt;
+#9 0x5f321ab6fee4 &lt;unknown&gt;
+#10 0x5f321ab70ca1 &lt;unknown&gt;
+#11 0x5f321b0b8bbf &lt;unknown&gt;
+#12 0x5f321b0bbbae &lt;unknown&gt;
+#13 0x5f321b0a6c7e &lt;unknown&gt;
+#14 0x5f321b0bc349 &lt;unknown&gt;
+#15 0x5f321b08f107 &lt;unknown&gt;
+#16 0x5f321b0e1698 &lt;unknown&gt;
+#17 0x5f321b0e18c3 &lt;unknown&gt;
+#18 0x5f321b0f2a5c &lt;unknown&gt;
+#19 0x7db1b94c9aa4 &lt;unknown&gt;
+#20 0x7db1b9556c6c &lt;unknown&gt;
+</msg>
+<arg>xpath=//*[@id="button-save"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-03-04T11:51:51.032151" elapsed="1.202006">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1201, 903)
+  (Session info: chrome=145.0.7632.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+#0 0x5f321b0f44ba &lt;unknown&gt;
+#1 0x5f321ab297b3 &lt;unknown&gt;
+#2 0x5f321ab8522b &lt;unknown&gt;
+#3 0x5f321ab82e62 &lt;unknown&gt;
+#4 0x5f321ab80369 &lt;unknown&gt;
+#5 0x5f321ab7f467 &lt;unknown&gt;
+#6 0x5f321ab71f72 &lt;unknown&gt;
+#7 0x5f321ab718b8 &lt;unknown&gt;
+#8 0x5f321abc6345 &lt;unknown&gt;
+#9 0x5f321ab6fee4 &lt;unknown&gt;
+#10 0x5f321ab70ca1 &lt;unknown&gt;
+#11 0x5f321b0b8bbf &lt;unknown&gt;
+#12 0x5f321b0bbbae &lt;unknown&gt;
+#13 0x5f321b0a6c7e &lt;unknown&gt;
+#14 0x5f321b0bc349 &lt;unknown&gt;
+#15 0x5f321b08f107 &lt;unknown&gt;
+#16 0x5f321b0e1698 &lt;unknown&gt;
+#17 0x5f321b0e18c3 &lt;unknown&gt;
+#18 0x5f321b0f2a5c &lt;unknown&gt;
+#19 0x7db1b94c9aa4 &lt;unknown&gt;
+#20 0x7db1b9556c6c &lt;unknown&gt;
+</status>
+</kw>
+<status status="FAIL" start="2026-03-04T11:51:51.031877" elapsed="1.202549">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1201, 903)
+  (Session info: chrome=145.0.7632.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+#0 0x5f321b0f44ba &lt;unknown&gt;
+#1 0x5f321ab297b3 &lt;unknown&gt;
+#2 0x5f321ab8522b &lt;unknown&gt;
+#3 0x5f321ab82e62 &lt;unknown&gt;
+#4 0x5f321ab80369 &lt;unknown&gt;
+#5 0x5f321ab7f467 &lt;unknown&gt;
+#6 0x5f321ab71f72 &lt;unknown&gt;
+#7 0x5f321ab718b8 &lt;unknown&gt;
+#8 0x5f321abc6345 &lt;unknown&gt;
+#9 0x5f321ab6fee4 &lt;unknown&gt;
+#10 0x5f321ab70ca1 &lt;unknown&gt;
+#11 0x5f321b0b8bbf &lt;unknown&gt;
+#12 0x5f321b0bbbae &lt;unknown&gt;
+#13 0x5f321b0a6c7e &lt;unknown&gt;
+#14 0x5f321b0bc349 &lt;unknown&gt;
+#15 0x5f321b08f107 &lt;unknown&gt;
+#16 0x5f321b0e1698 &lt;unknown&gt;
+#17 0x5f321b0e18c3 &lt;unknown&gt;
+#18 0x5f321b0f2a5c &lt;unknown&gt;
+#19 0x7db1b94c9aa4 &lt;unknown&gt;
+#20 0x7db1b9556c6c &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-03-04T11:51:52.234649" elapsed="0.000085"/>
+</kw>
+<kw name="Confirm Order" owner="Resource_purchase">
+<status status="NOT RUN" start="2026-03-04T11:51:52.234946" elapsed="0.000092"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${message}</var>
+<arg>id=content</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-04T11:51:52.235190" elapsed="0.000121"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${message}</arg>
+<arg>Your order has been placed!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2026-03-04T11:51:52.235701" elapsed="0.000097"/>
+</kw>
+<tag>purchase_item</tag>
+<status status="FAIL" start="2026-03-04T11:51:40.574035" elapsed="11.662185">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (1201, 903)
+  (Session info: chrome=145.0.7632.109); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+#0 0x5f321b0f44ba &lt;unknown&gt;
+#1 0x5f321ab297b3 &lt;unknown&gt;
+#2 0x5f321ab8522b &lt;unknown&gt;
+#3 0x5f321ab82e62 &lt;unknown&gt;
+#4 0x5f321ab80369 &lt;unknown&gt;
+#5 0x5f321ab7f467 &lt;unknown&gt;
+#6 0x5f321ab71f72 &lt;unknown&gt;
+#7 0x5f321ab718b8 &lt;unknown&gt;
+#8 0x5f321abc6345 &lt;unknown&gt;
+#9 0x5f321ab6fee4 &lt;unknown&gt;
+#10 0x5f321ab70ca1 &lt;unknown&gt;
+#11 0x5f321b0b8bbf &lt;unknown&gt;
+#12 0x5f321b0bbbae &lt;unknown&gt;
+#13 0x5f321b0a6c7e &lt;unknown&gt;
+#14 0x5f321b0bc349 &lt;unknown&gt;
+#15 0x5f321b08f107 &lt;unknown&gt;
+#16 0x5f321b0e1698 &lt;unknown&gt;
+#17 0x5f321b0e18c3 &lt;unknown&gt;
+#18 0x5f321b0f2a5c &lt;unknown&gt;
+#19 0x7db1b94c9aa4 &lt;unknown&gt;
+#20 0x7db1b9556c6c &lt;unknown&gt;
+</status>
 </test>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2026-02-20T16:28:22.527007" level="ERROR">Error terminating service process.
+<kw name="Close page" owner="Resource_purchase" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<msg time="2026-03-04T11:51:52.325427" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()
@@ -143,22 +295,25 @@ Traceback (most recent call last):
     ~~~~~~~^^^^^^^^^^^^^^^
 PermissionError: [Errno 13] Permission denied</msg>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-02-20T16:28:22.458961" elapsed="0.069218"/>
+<status status="PASS" start="2026-03-04T11:51:52.238019" elapsed="0.088023"/>
 </kw>
-<status status="PASS" start="2026-02-20T16:28:17.384143" elapsed="5.144200"/>
+<status status="PASS" start="2026-03-04T11:51:52.237649" elapsed="0.088591"/>
+</kw>
+<status status="FAIL" start="2026-03-04T11:51:37.571849" elapsed="14.754502"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">purchase_item</stat>
 </tag>
 <suite>
-<stat name="Login tests" id="s1" pass="1" fail="0" skip="0">Login tests</stat>
+<stat name="Purchase tests" id="s1" pass="0" fail="1" skip="0">Purchase tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-02-20T16:28:22.527007" level="ERROR">Error terminating service process.
+<msg time="2026-03-04T11:51:52.325427" level="ERROR">Error terminating service process.
 Traceback (most recent call last):
   File "/home/christophe/Documents/Robot_LambdaTest/.venv/lib/python3.13/site-packages/selenium/webdriver/common/service.py", line 178, in _terminate_process
     self.process.terminate()

@@ -4,7 +4,7 @@ Library   String
 
 *** Variables ***
 ${URL}            https://ecommerce-playground.lambdatest.io/index.php?route=account/register
-${BROWSER}        Chrome
+${BROWSER}        Chrome        options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 
 ${FIRST_NAME}                Christophe

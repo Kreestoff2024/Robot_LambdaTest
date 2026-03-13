@@ -4,7 +4,7 @@ Library        String
 
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
-${BROWSER}                   Chrome
+${BROWSER}                   Chrome        options=add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 @{DATA1}                     Christophe    Bréhal    @tof.com    023456789    1478963    1478963
 @{DATA2}                     Christophe    Bréhal    chris@      023456789    1478963    1478963
