@@ -6,7 +6,6 @@ Library    browser_options.py
 *** Variables ***
 ${URL}               https://ecommerce-playground.lambdatest.io/index.php?route=account/register
 ${BROWSER}           Chrome       
-${CHROME_OPTIONS}    add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 ${FIRST_NAME}                Christophe
 ${LAST_NAME}                 Bréhal
@@ -16,10 +15,10 @@ ${PASSWORD}                  1478963
 ${CONFIRM_PASSWORD}          1478963
 
 
-
 *** Keywords ***
 Open Home Page
-    Open Browser        ${URL}        ${BROWSER}        options=${CHROME_OPTIONS}
+    ${options}=    Get Chrome Options
+    Open Browser        ${URL}        ${BROWSER}        options=${options}
 
 Close Page
     Close Browser

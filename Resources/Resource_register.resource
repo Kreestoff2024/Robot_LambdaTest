@@ -5,7 +5,6 @@ Library        browser_options
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
 ${BROWSER}                   Chrome        
-${CHROME_OPTIONS}            add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 @{DATA1}                     Christophe    Bréhal    @tof.com    023456789    1478963    1478963
 @{DATA2}                     Christophe    Bréhal    chris@      023456789    1478963    1478963
@@ -24,7 +23,8 @@ ${CONFIRM_PASSWORD}          1478963
 *** Keywords ***
 
 Open Home Page
-    Open Browser    ${URL}    ${BROWSER}    options=${CHROME_OPTIONS}
+    ${options}=     Get Chrome Options
+    Open Browser    ${URL}    ${BROWSER}    options=${options}
 
 Close Browsers
     Close Browser

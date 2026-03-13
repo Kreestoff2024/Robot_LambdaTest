@@ -7,7 +7,6 @@ ${URL}                    https://ecommerce-playground.lambdatest.io/index.php?r
 ${URL_Account}            https://ecommerce-playground.lambdatest.io/index.php?route=account/account
 ${URL_Account_Logout}     https://ecommerce-playground.lambdatest.io/index.php?route=account/logout
 ${BROWSER}                Chrome        
-${CHROME_OPTIONS}         add_argument(--headless);add_argument(--no-sandbox);add_argument(--disable-dev-shm-usage)
 
 ${EMAIL}          chris@tof.com
 ${PASSWORD}       1478963 
@@ -19,7 +18,8 @@ ${PASSWORD}       1478963
 
 *** Keywords ***
 Open Login Page
-    Open Browser        ${URL}        ${BROWSER}    options=${CHROME_OPTIONS}
+    ${options}=    Get Chrome Options
+    Open Browser        ${URL}        ${BROWSER}    options=${options}
 
 Close Page
     Close Browser
