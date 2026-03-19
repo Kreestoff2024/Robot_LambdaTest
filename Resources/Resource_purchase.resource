@@ -49,13 +49,9 @@ Click on cart
 Click on Login
     [Documentation]        I am a registered user
     Click Element      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]
-    #xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]
-    #/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]/label
-    #//*[@id="input-account-login"]
+    
 Confirm Order
     Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/div[4]/button/i
-         #  //*[@id="button-confirm"]
-         # id=button-confirm
          
 Fill in the Account Login form
     [Arguments]    ${email}    ${password}
@@ -65,10 +61,9 @@ Fill in the Account Login form
 
 Agree to terms and conditions
     Click Element    xpath=//label[@for="input-agree"]
-#//*[@id="input-agree"]//*[@id="form-checkout"]/div/div[2]/div/div[5]
+
 Use Existing Address
     Click Element    id=input-payment-address-existing
-
 
 Click Continue
     Click Element    xpath=//*[@id="button-save"]
@@ -91,7 +86,6 @@ Fill in the Billing Address form
     Click Button     id=button-save
 Get the picture address of a product
     [Documentation]        Looks for a product on the page (from its ID number), and sends back the address of its picture
-    #[Arguments]            ${ID}
     Click Element          id=entry_218387
     ${picture_address}     Get Element Attribute    xpath=/html/body/div[1]/div[9]/div[1]/div[2]/div/div[2]/div[1]/div[1]/div/div[1]/a/img       src 
     RETURN                 ${picture_address}
