@@ -156,7 +156,7 @@ Test Invalid Password Lengths
         Should Be Equal    ${message}        Password must be between 4 and 20 characters!
     END
 
-
+   #Bug detected with 21+ digits on password length
 Test Valid Password Lengths
     @{PASSWORDS}=    Create List        4        5        19        20        
 

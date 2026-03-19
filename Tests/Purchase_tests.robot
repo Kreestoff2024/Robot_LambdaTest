@@ -39,8 +39,6 @@ Purchase an item
     Agree to terms and conditions
     Agree to terms and conditions
     Click Continue
-    Sleep    2s
-    #Fill in the Billing Address form    @{DATA_billing}
     Confirm Order
     ${message}    Get Text    id=content
     Element Should Contain    ${message}    Your order has been placed!
@@ -54,9 +52,9 @@ Remove Items from cart
     Select size
     Sleep    2s
     Click on Buy now
-    Sleep    2s
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[2]/div/div[1]/div[1]/table/tbody/tr/td[3]/div/div/button[2]
     Remove items
-    Sleep    2s
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[5]/div[1]/div/div/h1
     ${message}    Get Text    id=content
     Should Contain    ${message}    Your shopping cart is empty!
     

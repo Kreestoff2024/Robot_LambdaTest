@@ -29,7 +29,7 @@ The user does not enter a first name
     Enter CONFIRM_PASSWORD
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[1]/div[2]/div/div
+    ${message}=    Get Text    xpath=//*[@id="account"]/div[2]/div/div
     Log    ${message}
     Should Be Equal    ${message}    First Name must be between 1 and 32 characters!
 
@@ -43,7 +43,7 @@ The user does not enter a last name
     Enter CONFIRM_PASSWORD
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[1]/div[3]/div/div
+    ${message}    Get Text    css=.text-danger
     Log    ${message}
     Should Be Equal    ${message}    Last Name must be between 1 and 32 characters!
 
@@ -57,7 +57,7 @@ The user does not enter an email
     Enter CONFIRM_PASSWORD
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/fieldset[1]/div[4]/div/div
+    ${message}=    Get Text    xpath=//*[@id="account"]/div[4]/div/div
     Log    ${message}
     Should Be Equal    ${message}    E-Mail Address does not appear to be valid!
 
@@ -71,7 +71,7 @@ The user does not enter a telephone number
     Enter CONFIRM_PASSWORD
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[1]/div[5]/div/div
+    ${message}=    Get Text    css=.text-danger
     Log    ${message}
     Should Be Equal    ${message}    Telephone must be between 3 and 32 characters!
 
@@ -85,12 +85,25 @@ The user does not enter a password
     Enter CONFIRM_PASSWORD
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[2]/div[1]/div/div
+    ${message}=    Get Text    xpath=//*[@id="content"]/form/fieldset[2]/div[1]/div/div
     Log    ${message}
     Should Be Equal    ${message}    Password must be between 4 and 20 characters!
-    ${message1}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[2]/div[2]/div/div
+    ${message1}=    Get Text    xpath=//*[@id="content"]/form/fieldset[2]/div[2]/div/div
     Log    ${message1}
     Should Be Equal    ${message1}    Password confirmation does not match password!
+
+The user does not fill in Password Confirm field
+    [Tags]    Password_confirm_not_filled_in
+    Enter FIRST_NAME
+    Enter LAST_NAME
+    Enter EMAIL
+    Enter TELEPHONE
+    Enter PASSWORD
+    Click on Privacy Policy
+    Click on Continue
+    ${message}=    Get Text    xpath=//*[@id="content"]/form/fieldset[2]/div[2]/div/div
+    Log    ${message}
+    Should Be Equal    ${message}    Password confirmation does not match password!
 
 
 The user enters invalid confirm password
@@ -103,7 +116,7 @@ The user enters invalid confirm password
     Uncorrect password confirmation
     Click on Privacy Policy
     Click on Continue
-    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[2]/div/form/fieldset[2]/div[2]/div/div
+    ${message}=    Get Text    xpath=//*[@id="content"]/form/fieldset[2]/div[2]/div/div
     Log    ${message}
     Should Be Equal    ${message}    Password confirmation does not match password!
 

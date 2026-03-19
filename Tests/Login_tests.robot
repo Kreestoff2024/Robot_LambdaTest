@@ -2,7 +2,7 @@
 Resource           ../Resources/Resource_login.resource
 
 Suite Setup        Open Login Page
-Test Teardown      Delete the status of the site and log out
+#Test Teardown      Delete the status of the site and log out
 Suite Teardown     Close Browser
 
 *** Test Cases ***
