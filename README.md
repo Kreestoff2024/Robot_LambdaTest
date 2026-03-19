@@ -13,3 +13,9 @@ Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route
 - Added new options (headless, sandbox and disable dev shm usage) for Chrome browser to be compatible with Jenkins.
   
 - Added Purchase resource and test files.
+
+- Launched Test Suite from Jenkins (via a freestyle pipeline).
+
+- Fixed test cases (keywords, selectors, browser options, variables).
+
+- Added a new test case in Register_page.robot: The user does not fill in password confirm field.
