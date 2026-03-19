@@ -1,7 +1,7 @@
 *** Settings ***
 Resource              ../Resources/Resource_register.resource
-Suite Setup           Open Home Page
-Suite Teardown        Close Browsers
+Test Setup           Open Home Page
+Test Teardown        Close Browsers
 
 *** Test Cases ***
 

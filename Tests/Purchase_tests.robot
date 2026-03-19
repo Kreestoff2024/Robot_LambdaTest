@@ -1,7 +1,7 @@
 *** Settings ***
 Resource              ../Resources/Resource_purchase.resource
-Suite Setup           Open main page
-Suite Teardown        Close page
+Test Setup           Open main page
+Test Teardown        Close page
 
 *** Test Cases ***
 
@@ -37,11 +37,12 @@ Purchase an item
     Sleep    2s
     Use Existing Address
     Agree to terms and conditions
-    Agree to terms and conditions
-    Click Continue
+    Double Click Element    xpath=//*[@id="button-save"]
+    Wait Until Element Is Visible    css=.page-title
     Confirm Order
-    ${message}    Get Text    id=content
-    Element Should Contain    ${message}    Your order has been placed!
+    Wait Until Element Is Visible    css=.buttons > a:nth-child(1)
+    ${message}    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div/div/p[2]
+    Should Be Equal    ${message}    Your order has been successfully processed!
 
 
 Remove Items from cart

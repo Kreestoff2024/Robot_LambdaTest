@@ -1,7 +1,7 @@
 *** Settings ***
 Resource              ../Resources/Resource_boundaries.resource
-Suite Setup           Open Home Page
-Suite Teardown        Close Browser
+Test Setup           Open Home Page
+Test Teardown        Close Browser
 
 *** Test Cases ***
 
