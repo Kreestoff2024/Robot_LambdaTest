@@ -1,6 +1,6 @@
 *** Settings ***
 Library        SeleniumLibrary
-Library        browser_options
+Library        browser_options.py
 
 *** Variables ***
 ${URL_main}          https://ecommerce-playground.lambdatest.io/index.php?route=common/home
@@ -53,9 +53,10 @@ Click on Login
     #/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]/label
     #//*[@id="input-account-login"]
 Confirm Order
-    Click Button      id=button-confirm
+    Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/div[4]/button/i
          #  //*[@id="button-confirm"]
          # id=button-confirm
+         
 Fill in the Account Login form
     [Arguments]    ${email}    ${password}
     Input Text        id=input-login-email       ${email}
@@ -66,8 +67,8 @@ Agree to terms and conditions
     Click Element    xpath=//label[@for="input-agree"]
 #//*[@id="input-agree"]//*[@id="form-checkout"]/div/div[2]/div/div[5]
 Use Existing Address
-    Click Element    xpath=//*[@id="form-checkout"]/div/div[2]/div/div[5]/label
-#//*[@id="form-checkout"]/div/div[2]/div/div[5]/label
+    Click Element    id=input-payment-address-existing
+
 
 Click Continue
     Click Element    xpath=//*[@id="button-save"]

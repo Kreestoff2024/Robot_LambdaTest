@@ -1,7 +1,7 @@
 *** Settings ***
 Library        SeleniumLibrary
 Library        String
-Library        browser_options
+Library        browser_options.py
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
 ${BROWSER}                   Chrome        
@@ -9,11 +9,11 @@ ${BROWSER}                   Chrome
 @{DATA1}                     Christophe    Bréhal    @tof.com    023456789    1478963    1478963
 @{DATA2}                     Christophe    Bréhal    chris@      023456789    1478963    1478963
 @{DATA3}                     Christophe    Bréhal    chris@.com  023456789    1478963    1478963
-@{DATA4}                     Christophe    Bréhal    chris@com   023456789    1478963    1478963
+@{DATA4}                     Christophe    Bréhal    chris.com   023456789    1478963    1478963
 
 ${FIRST_NAME}                Christophe
 ${LAST_NAME}                 Bréhal
-@{EMAILS}                    chris@        @tof.com    chris.com    chris@com    chris@tof
+@{EMAILS}                    chris@        @tof.com    chris.com    chris@.com    chris@tof
 ${TELEPHONE}                 023456789
 ${PASSWORD}                  1478963
 ${CONFIRM_PASSWORD}          1478963
@@ -36,7 +36,7 @@ Enter LAST_NAME
     Input Text    id=input-lastname    Bréhal
 
 Enter EMAIL
-    Input Text    id=input-email    chris@tof.com
+    Input Text    id=input-email    khris@tof.com
 
 Enter TELEPHONE
     Input Text    id=input-telephone    023456789
@@ -61,7 +61,6 @@ Uncorrect password confirmation
 
 Register user
     [Arguments]       ${first_name}    ${last_name}    ${email}    ${telephone}    ${password}    ${confirm_password}
-    #Open Browser      https://ecommerce-playground.lambdatest.io/index.php?route=account/register
     Input Text        id=input-firstname    ${first_name}
     Input Text        id=input-lastname     ${last_name}
     Input Text        id=input-email        ${email}
@@ -70,8 +69,29 @@ Register user
     Input Password    id=input-confirm      ${confirm_password}
     Click Element     xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label
     Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input
-    Sleep    2s
-    ${message}=    Execute JavaScript    return document.querySelector("input[name='email']").validationMessage;
-    Log  ${message}    level=INFO
-    Should Not Be Empty       ${message}
-    #Close Browser
+
+    
+    Execute JavaScript    document.getElementById("input-email").form.noValidate = true
+    Execute JavaScript    document.getElementById("input-email").form.submit()
+
+    ${inline_message}=    Set Variable    NONE
+    ${global_message}=    Set Variable    NONE
+    ${inline_elem}=    Execute JavaScript    return document.querySelector("#input-email + div.text-danger");
+    IF    ${inline_elem}
+        ${inline_message}=    Execute JavaScript    return document.querySelector("#input-email + div.text-danger").innerText
+        Should Not Be Empty    ${inline_message}
+        Log    Message inline: ${inline_message}
+    ELSE
+        Log    Aucun message inline pour cet email
+    END
+
+    ${global_elem}=    Execute JavaScript    return document.querySelector("#account div.alert");
+    IF    ${global_elem}
+        ${global_message}=    Execute JavaScript    return document.querySelector("#account div.alert").innerText
+        Should Not Be Empty    ${global_message}
+        Log    Message global: ${global_message}
+    ELSE
+        Log    Aucun message global pour cet email
+    END
+   
+    

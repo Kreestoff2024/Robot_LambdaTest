@@ -1,6 +1,6 @@
 *** Settings ***
 Library        SeleniumLibrary
-Library        browser_options
+Library        browser_options.py
 
 *** Variables ***
 ${URL}                    https://ecommerce-playground.lambdatest.io/index.php?route=account/login
@@ -18,7 +18,7 @@ ${PASSWORD}       1478963
 
 *** Keywords ***
 Open Login Page
-    ${options}=    Get Chrome Options
+    ${options}=         Get Chrome Options
     Open Browser        ${URL}        ${BROWSER}    options=${options}
 
 Close Page
