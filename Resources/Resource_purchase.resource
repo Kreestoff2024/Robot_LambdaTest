@@ -51,7 +51,7 @@ Click on Login
     Click Element      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[1]/div/div[1]/div/div[1]
     
 Confirm Order
-    Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/div[4]/button/i
+    Click Button     id=button-confirm
          
 Fill in the Account Login form
     [Arguments]    ${email}    ${password}
@@ -63,10 +63,10 @@ Agree to terms and conditions
     Click Element    xpath=//label[@for="input-agree"]
 
 Use Existing Address
-    Click Element    id=input-payment-address-existing
+    Click Element    css=#payment-address > div:nth-child(2) > div:nth-child(1) > label:nth-child(2)
 
 Click Continue
-    Click Element    xpath=//*[@id="button-save"]
+    Click Button    xpath=//*[@id="button-save"]
 
 Close terms popup window
     Click Element    xpath=//*[@id="modal-agree"]/div/div/div[1]/button
