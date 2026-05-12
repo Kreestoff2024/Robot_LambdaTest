@@ -19,3 +19,5 @@ Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route
 - Fixed test cases (keywords, selectors, browser options, variables).
 
 - Added a new test case in Register_page.robot: The user does not fill in password confirm field.
+
+- Test the My Account page.
