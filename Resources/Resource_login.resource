@@ -13,6 +13,7 @@ ${PASSWORD}       1478963
 
 @{DATA1}          chris@tof.com
 @{DATA2}          kris@egf.com
+         
 
 
 
@@ -33,10 +34,10 @@ Enter Password
 Click on login
     Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input
 
-Click on Forgotten Password
+Click Forgotten Password
     Click Link    xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/div[2]/a
 
-Click on Continue
+Click Continue
     Click Button    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[2]/button
 
 Login is confirmed

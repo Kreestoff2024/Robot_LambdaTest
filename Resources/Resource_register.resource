@@ -2,6 +2,8 @@
 Library        SeleniumLibrary
 Library        String
 Library        browser_options.py
+Library        squash_tf.TFParamService
+
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
 ${BROWSER}                   Chrome        
@@ -18,6 +20,12 @@ ${TELEPHONE}                 023456789
 ${PASSWORD}                  1478963
 ${CONFIRM_PASSWORD}          1478963
 
+@{ERRORS}
+...    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/fieldset[2]/div[1]/div/div       Password must be between 4 and 20 characters!
+...    xpath=//*[@id="account"]/div[5]/div/div                                             Telephone must be between 3 and 32 characters!
+...    xpath=//*[@id="account"]/div[4]/div/div                                             E-Mail Address does not appear to be valid!
+...    xpath=//*[@id="account"]/div[3]/div/div                                             Last Name must be between 1 and 32 characters!
+...    xpath=//*[@id="account"]/div[2]/div/div                                             First Name must be between 1 and 32 characters!
 
 
 *** Keywords ***
@@ -93,5 +101,17 @@ Register user
     ELSE
         Log    Aucun message global pour cet email
     END
-   
-    
+
+Register User2
+   [Arguments]       ${first_name}    ${last_name}    ${email}    ${telephone}    ${password}    ${confirm_password}
+    Input Text        id=input-firstname    ${first_name}
+    Input Text        id=input-lastname     ${last_name}
+    Input Text        id=input-email        ${email}
+    Input Text        id=input-telephone    ${telephone}
+    Input Password    id=input-password     ${password}
+    Input Password    id=input-confirm      ${confirm_password}
+    Click Element     xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/div/label
+    Click Button      xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div/input
+    ${message}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/fieldset[2]/div[1]/div/div
+    Log    ${message}   
+    Should Be Equal    ${message}         Password must be between 4 and 20 characters!
