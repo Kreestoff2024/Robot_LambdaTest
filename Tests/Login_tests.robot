@@ -85,3 +85,12 @@ The user enters an unknown email
     Forgot Password Email Field    ${DATA2}[0]
     ${message}        Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[1]
     Should Be Equal    ${message}     Warning: The E-Mail Address was not found in our records, please try again!
+
+The user does not enter an email
+    [Tags]    empty_email_field
+    Click Forgotten Password
+    Click Continue
+    ${message}        Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[1]
+    Should Be Equal    ${message}     Warning: The E-Mail Address was not found in our records, please try again!
+
+

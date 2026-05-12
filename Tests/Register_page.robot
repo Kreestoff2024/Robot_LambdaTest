@@ -6,6 +6,7 @@ Test Teardown        Close Browsers
 *** Test Cases ***
 
 #Test passant avec tous les champs remplis correctement
+
 The user registers to the site
     [Tags]    Register_to_site
     Enter FIRST_NAME
@@ -105,6 +106,27 @@ The user does not fill in Password Confirm field
     Log    ${message}
     Should Be Equal    ${message}    Password confirmation does not match password!
 
+The user does not fill in any fields and clicks Privacy Policy
+    [Tags]    Empty_fields_clicks_Privacy_Policy
+    Click on Privacy Policy
+    Click on Continue
+    FOR    ${locator}    ${message}    IN    @{ERRORS}
+        Run Keyword And Continue On Failure
+        ...    Element Text Should Be    ${locator}    ${message}
+    END
+
+The user doesn't fill in any fields and doesn't click Privacy Policy
+    [Tags]    Empty_fields_no_click_Privacy_Policy
+    Click on Continue
+    Wait Until Element Is Visible    xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/fieldset[2]/div[1]/div/div
+    FOR    ${locator}    ${message}    IN    @{ERRORS}
+        Run Keyword And Continue On Failure
+        ...    Element Text Should Be    ${locator}    ${message}
+    END
+    ${message1}=    Get Text    xpath=/html/body/div[1]/div[5]/div[1]/div[1]
+    Log    ${message1}
+    Should Be Equal    ${message1}     Warning: You must agree to the Privacy Policy!
+    
 
 The user enters invalid confirm password
     [Tags]    No_confirm_password
@@ -146,16 +168,16 @@ Register with invalid email formats
     Christophe    Bréhal    chris@         023456789    1478963    1478963
 
 
-Register with data1
+Register with invalid_email1
     Register user    ${DATA1}[0]    ${DATA1}[1]    ${DATA1}[2]    ${DATA1}[3]    ${DATA1}[4]    ${DATA1}[5]
 
-Register with data2  
+Register with invalid_email2  
     Register user    ${DATA2}[0]    ${DATA2}[1]    ${DATA2}[2]    ${DATA2}[3]    ${DATA2}[4]    ${DATA2}[5]
 
-Register with data3  
+Register with invalid_email3  
     Register user    ${DATA3}[0]    ${DATA3}[1]    ${DATA3}[2]    ${DATA3}[3]    ${DATA3}[4]    ${DATA3}[5]
 
-Register with data4  
+Register with invalid_email4  
     Register user    ${DATA4}[0]    ${DATA4}[1]    ${DATA4}[2]    ${DATA4}[3]    ${DATA4}[4]    ${DATA4}[5]
 
 
@@ -167,6 +189,5 @@ Test invalid emails
     END
 
 
-    
 
 

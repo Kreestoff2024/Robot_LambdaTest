@@ -58,4 +58,4 @@ Remove Items from cart
     Wait Until Element Is Visible    xpath=/html/body/div[1]/div[5]/div[1]/div/div/h1
     ${message}    Get Text    id=content
     Should Contain    ${message}    Your shopping cart is empty!
-    
+
