@@ -14,12 +14,24 @@ ${BROWSER}                Chrome
 ...        xpath=//*[@id="content"]/form/fieldset/div[3]/div/div                       E-Mail Address does not appear to be valid!
 ...        xpath=//*[@id="content"]/form/fieldset/div[4]/div/div                       Telephone must be between 3 and 32 characters!
 
+@{ERRORS2}
+...        xpath=//*[@id="content"]/form/fieldset/div[1]/div/div                       First Name must be between 1 and 32 characters!
+...        xpath=//*[@id="content"]/form/fieldset/div[2]/div/div                       Last Name must be between 1 and 32 characters!
+...        xpath=//*[@id="content"]/form/fieldset/div[4]/div/div                       Address must be between 3 and 128 characters!
+...        xpath=//*[@id="content"]/form/fieldset/div[6]/div/div                       City must be between 2 and 128 characters!
+#...        xpath=//*[@id="content"]/form/fieldset/div[7]/div/div                       Postcode must be between 2 and 10 characters!
+...        xpath=//*[@id="content"]/form/fieldset/div[8]/div/div                       Please select a country!
+...        xpath=//*[@id="content"]/form/fieldset/div[9]/div/div                       Please select a region / state!
 
 @{FIELDS_ERRORS}  
 ...                  id=input-firstname|xpath=//*[@id="content"]/form/fieldset/div[1]/div/div|First Name must be between 1 and 32 characters!
 ...                  id=input-lastname|xpath=//*[@id="content"]/form/fieldset/div[2]/div/div|Last Name must be between 1 and 32 characters!
-...                  id=input-email|xpath=//*[@id="content"]/form/fieldset/div[3]/div/div|E-Mail Address does not appear to be valid!
-...                  id=input-telephone|xpath=//*[@id="content"]/form/fieldset/div[4]/div/div|Telephone must be between 3 and 32 characters!
+...                  id=input-address-1|xpath=//*[@id="content"]/form/fieldset/div[4]/div/div|Address must be between 3 and 128 characters!
+...                  id=input-city|xpath=//*[@id="content"]/form/fieldset/div[6]/div/div|City must be between 2 and 128 characters!
+...                  id=input-postcode|xpath=//*[@id="content"]/form/fieldset/div[7]/div/div|Postcode must be between 2 and 10 characters!
+...                  id=input-country|xpath=//*[@id="content"]/form/fieldset/div[8]/div/div|Please select a country!
+#...                  id=input-email|xpath=//*[@id="content"]/form/fieldset/div[3]/div/div|E-Mail Address does not appear to be valid!
+#...                  id=input-telephone|xpath=//*[@id="content"]/form/fieldset/div[4]/div/div|Telephone must be between 3 and 32 characters!
 
 
 ${FIRSTNAME}    Krystof
@@ -53,6 +65,12 @@ Click Edit your account information
 
 Click Change your password
     Click Element    xpath=//*[@id="content"]/div[1]/div/div/div[2]/a
+
+Click Modifiy your address book entries
+    Click Element    xpath=//*[@id="content"]/div[1]/div/div/div[3]/a
+
+Click Edit
+    Click Element    xpath=//*[@id="content"]/div[1]/table/tbody/tr/td[2]/a[1]
 
 Enter Firstname
     Input Text    id=input-firstname    Krystof
@@ -101,7 +119,7 @@ My Account Information (KO)
     Input Text                       id=input-telephone    ${telephone}
     Click Button                     xpath=/html/body/div[1]/div[5]/div[1]/div/div/form/div/div[2]/input
     Wait Until Element Is Visible    id=column-right
-    FOR    ${locator}    ${message}    IN    @{ERRORS}
+    FOR    ${locator}    ${message}    IN    @{ERRORS2}
         Run Keyword And Continue On Failure
         ...    Element Text Should Be    ${locator}    ${message}
     END
@@ -135,4 +153,27 @@ My Account Information_invalid_emails
         Log    Message global: ${global_message}
     ELSE
         Log    Aucun message global pour cet email
+    END
+
+
+My Account Information (KO2)
+    [Arguments]    ${email}    ${password}    ${firstname}    ${lastname}    ${address1}    ${city}   ${country}    ${region}
+    Input Text                       id=input-email        ${email}
+    Input Password                   id=input-password    ${password}
+    Click Button                     xpath=/html/body/div[1]/div[5]/div[1]/div/div/div/div[2]/div/div/form/input
+    Wait Until Element Is Visible    id=column-right
+    Click Element                    xpath=//*[@id="content"]/div[1]/div/div/div[3]/a
+    Click Element                    xpath=//*[@id="content"]/div[1]/table/tbody/tr/td[2]/a[1]
+    Input Text                       id=input-firstname    ${firstname}
+    Input Text                       id=input-lastname     ${lastname}
+    Input Text                       id=input-address-1    ${address1}
+    Input Text                       id=input-city         ${city}
+    #Input Text                       id=input-postcode     ${postcode}
+    Select From List By Value        id=input-country      ${country}
+    Select From List By Value        id=input-zone         ${region}
+    Click Button                     xpath=//*[@id="content"]/form/div/div[2]/input
+    Wait Until Element Is Visible    id=column-right
+    FOR    ${locator}    ${message}    IN    @{ERRORS2}
+        Run Keyword And Continue On Failure
+        ...    Element Text Should Be    ${locator}    ${message}
     END

@@ -2,7 +2,7 @@
 Library        SeleniumLibrary
 Library        String
 Library        browser_options.py
-Library        squash_tf.TFParamService
+
 
 *** Variables ***
 ${URL}                       https://ecommerce-playground.lambdatest.io/index.php?route=account/register
