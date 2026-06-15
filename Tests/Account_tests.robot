@@ -23,11 +23,12 @@ The user changes telephone
     [Template]    My Account Information (OK)
     chris@tof.com    1478963    Krystof    Bréhal    chris@tof.com    123456789
 
-#Tests non passants - champs vides
+#Tests non passants  Modifier informations compte - champs vides
 
 All fields empty
     [Template]    My Account Information (KO)
     chris@tof.com    1478963    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY} 
+
 
 Test all fields one by one
     [Tags]    one_by_one
@@ -95,5 +96,43 @@ Test Change Password with Invalid Lengths
         Should Be Equal    ${message}        Password must be between 4 and 20 characters!
 
     END
+
+#Tests non passants - Modifier l'adresse - champs vides
     
-    
+All fields empty 2
+    [Template]    My Account Information (KO2)
+    chris@tof.com    1478963    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
+
+
+Test all fields one by one 2
+    [Tags]    one_by_one_2
+    Enter Email1
+    Enter Password
+    Click Login
+    Sleep    2s
+    Click Modifiy your address book entries
+    Click Edit
+    FOR    ${row}    IN    @{FIELDS_ERRORS}
+         ${field}    ${locator_error}    ${message}=    Split String    ${row}    |
+
+        Input Text                    id=input-firstname    Krystof
+        Input Text                    id=input-lastname     Toffe
+        Input Text                    id=input-address-1    20, rue de la plage
+        Input Text                    id=input-city         Granville
+        Input Text                    id=input-postcode     50200
+        Select From List By Value     id=input-country      74
+
+        IF    '${field}' == 'id=input-country'
+        Select From List By Value    id=input-country    ${EMPTY}
+        ELSE
+        Clear Element Text    ${field}
+        END
+
+        Click Continue
+
+        Wait Until Element Is Visible    ${locator_error}    2s
+
+        Element Text Should Be    ${locator_error}    ${message}
+
+        
+    END
