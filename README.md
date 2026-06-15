@@ -1,4 +1,4 @@
-Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route=account/register with Robot Framework.
+Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route=common/home with Robot Framework.
 
 - Registration form: empty fields, wrong email formats + valid test.
 
@@ -20,4 +20,4 @@ Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route
 
 - Added a new test case in Register_page.robot: The user does not fill in password confirm field.
 
-- Test the My Account page.
+- Tested the Account page.
