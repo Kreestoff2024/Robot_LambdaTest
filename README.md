@@ -21,3 +21,5 @@ Testing the demo site https://ecommerce-playground.lambdatest.io/index.php?route
 - Added a new test case in Register_page.robot: The user does not fill in password confirm field.
 
 - Tested the Account page.
+
+- Unfortunately, the site is no longer available.
